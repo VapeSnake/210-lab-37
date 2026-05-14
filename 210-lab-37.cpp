@@ -31,7 +31,32 @@ int main()
         }
     }
     infile.close(); // Close the file after reading.
-
+    // Print the hash map contents.
+    int maxDisplay = 0; // Counter for limiting the number of hash indices displayed.
+    for (const auto &pair : hashMap)
+    {
+        if (maxDisplay >= 100)
+            break;                                    // After displaying 100 hash indices, stop.
+        cout << "Hash Index: " << pair.first << endl; // Print the hash index.
+        for (const string &s : pair.second)
+        {
+            cout << "  " << s << endl; // Print each string in the list associated with the hash index.
+        }
+        maxDisplay++; // Increment the display counter after printing each hash index and its associated strings.
+    }
+    
+   /*
+    // Test to see how many codes each index has.
+    for (const auto &pair : hashMap)
+    {
+        if (maxDisplay >= 100) break; // Fixed to exactly 100
+        
+        // This will print exactly 1 line per index, showing how many codes each index has.
+        cout << "Hash Index: " << pair.first << " (Contains " << pair.second.size() << " codes)" << endl;
+        
+        maxDisplay++; 
+    }
+    */
     return 0;
 }
 // Now generates a hash index using modulo to ensure the index fits within a certain range.
@@ -45,11 +70,3 @@ int gen_hash_index(const string &s)
     }
     return sum % HASH_SIZE; // Return the hash index within the defined range.
 }
-
-/*
-These targets are present in the dataset and can be used for testing:
-536B9DFC93AF
-1DA9D64D02A0
-666D109AA22E
-E1D2665B21EA
-*/
