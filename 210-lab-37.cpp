@@ -7,19 +7,21 @@ using namespace std;
 int sum_ascii(string s);
 
 int main() {
-    // Testing target test values with sum_ascii function.
-    string target1 = "536B9DFC93AF"; // ASCII sum is 729
-    string target2 = "1DA9D64D02A0"; // ASCII sum is 692
-    string target3 = "666D109AA22E"; // ASCII sum is 683
-    string target4 = "E1D2665B21EA"; // ASCII sum is 696
-
-    cout << "ASCII sum of " << target1 << " is: " << sum_ascii(target1) << endl; // Showed correct ASCII sum for target1.
-    // I miscounted, sums are correct.
-    cout << "ASCII sum of " << target2 << " is: " << sum_ascii(target2) << endl;
-    cout << "ASCII sum of " << target3 << " is: " << sum_ascii(target3) << endl;
-    cout << "ASCII sum of " << target4 << " is: " << sum_ascii(target4) << endl; 
-
-
+    ifstream infile("lab-37-data-3.txt");
+    if (!infile) { // Check if the file was opened successfully.
+        cerr << "Error opening file!" << endl;
+        return 1;
+    }
+    int grantTotal = 0; // Used to accumulate total sum of ASCII values for each string read from the file.
+    while (infile) {
+        string str;
+        infile >> str;
+        if (infile) { // Check if the read was successful.
+            int asciiSum = sum_ascii(str); // Calculate the sum of ASCII values for the string.
+            grantTotal += asciiSum; // Add the ASCII sum to the grand total.
+        }
+    }
+    cout << "Grand Total of ASCII values: " << grantTotal << endl; // Correctly displays grand total of 69893419.
 
     return 0;
 }
