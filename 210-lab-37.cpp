@@ -28,7 +28,7 @@ int main() {
     }
     infile.close(); // Close the file after reading.
     // Print the hash map contents.
-
+    int choice; // Variable to store the user's menu choice.
     // Menu Loop
     do {
         cout << "Main Menu:" << endl;
@@ -38,14 +38,13 @@ int main() {
         cout << "[4] Delete a string" << endl;
         cout << "[5] Modify a string" << endl;
         cout << "[6] Exit" << endl;
-        int choice;
         cout << "\nEnter your choice: ";
         if (!(cin >> choice)) { // Validate input to ensure it's an integer.
             cin.clear(); // Clear the error state.
             cin.ignore(1000, '\n'); // Ignore the rest of the line.
             cout << "Invalid input. Please enter a number between 1 and 6." << endl;
             continue; // Restart the loop to prompt for input again.
-        }
+        };
         
 
         switch (choice) {
