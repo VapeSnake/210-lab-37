@@ -28,29 +28,14 @@ int main() {
     }
     infile.close(); // Close the file after reading.
     // Print the hash map contents.
-    int maxDisplay = 0; // Counter for limiting the number of hash indices displayed.
-    for (const auto & pair: hashMap) {
-        if (maxDisplay >= 100)
-            break; // After displaying 100 hash indices, stop.
-        cout << "Hash Index: " << pair.first << endl; // Print the hash index.
-        for (const string & s: pair.second) {
-            cout << "  " << s << endl; // Print each string in the list associated with the hash index.
-        }
-        maxDisplay++; // Increment the display counter after printing each hash index and its associated strings.
+
+    // Menu Loop
+    do {
+        cout << "Main Menu:" << endl;
+        cout << "[1] Display Hash Map (First 100 entries)" << endl;
+        cout << " [2] Search for a key"
     }
-/*
-    
-     // Test to see how many codes each index has.
-     for (const auto &pair : hashMap)
-     {
-         if (maxDisplay >= 100) break; // Fixed to exactly 100
 
-         // This will print exactly 1 line per index, showing how many codes each index has.
-         cout << "Hash Index: " << pair.first << " (Contains " << pair.second.size() << " codes)" << endl;
-
-         maxDisplay++;
-     }
-*/
     return 0;
 }
 // Now generates a hash index using modulo to ensure the index fits within a certain range.
