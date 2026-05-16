@@ -128,6 +128,7 @@ int main()
             }
             break;
         }
+        // Test by modifying 'chicken12345' to 'falcon12345'. Test else statement by modifying cat123456789 which does not exist.
         case 5:
         { // Changes a string in hash table by deleting old string, adding new string, and displaying new index if it changes.
             string oldStr, newStr;
@@ -135,12 +136,29 @@ int main()
             cin >> oldStr;
             cout << "Enter new string: ";
             cin >> newStr;
-            int oldHashIndex = gen_hash_index(oldStr); // Generate hash index for the old string.
+            int oldHashIndex = gen_hash_index(oldStr);              // Generate hash index for the old string.
+            auto &strList = hashMap[oldHashIndex];                  // Get reference to the list at the old hash index.
+            auto it = find(strList.begin(), strList.end(), oldStr); // Find the old string in the list.
+            if (it != strList.end())
+            {                                              // If the old string is found, erase it and add the new string.
+                strList.erase(it);                         // Remove the old string from the list.
+                int newHashIndex = gen_hash_index(newStr); // Generate hash index for the new string.
+                hashMap[newHashIndex].push_back(newStr);   // Add the new string to the list at the new hash index.
+                cout << "String " << oldStr << " modified to " << newStr << endl;
+                if (oldHashIndex != newHashIndex)
+                { // If the hash index changes, display the new index.
+                    cout << "New hash index for " << newStr << ": " << newHashIndex << endl;
+                }
             }
+            else
+            {
+                cout << "String not found. Cannot modify." << endl;
+            }
+            break;
         }
-    } while (choice != 6); // Continue the menu loop until the user chooses to exit.
+        }
 
-    return 0;
+    } while (choice != 6); // Continue the menu loop until the user chooses to exit.
 }
 // Now generates a hash index using modulo to ensure the index fits within a certain range.
 int gen_hash_index(const string &s)
