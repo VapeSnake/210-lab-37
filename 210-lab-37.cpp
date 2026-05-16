@@ -170,4 +170,4 @@ int gen_hash_index(const string &s)
         sum += (int)c; // Add the ASCII value of each character to the sum.
     }
     return sum % HASH_SIZE; // Return the hash index within the defined range.
-}
+} 
