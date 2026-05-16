@@ -128,7 +128,7 @@ int main()
             }
             break;
         }
-        // Test by modifying 'chicken12345' to 'falcon12345'. Test else statement by modifying cat123456789 which does not exist.
+        // Test by modifying 'chicken12345' to 'falcon123456'. Test else statement by modifying cat123456789 which does not exist.
         case 5:
         { // Changes a string in hash table by deleting old string, adding new string, and displaying new index if it changes.
             string oldStr, newStr;
@@ -170,4 +170,4 @@ int gen_hash_index(const string &s)
         sum += (int)c; // Add the ASCII value of each character to the sum.
     }
     return sum % HASH_SIZE; // Return the hash index within the defined range.
-} 
+}
