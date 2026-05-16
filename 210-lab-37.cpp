@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 37 | Noel Mier-Luna
+// COMSC-210 | Lab 38 Branch | Noel Mier-Luna
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -48,7 +48,7 @@ int main() {
         
 
         switch (choice) {
-            case 1: {
+            case 1: { // Display the contents of the hash map, limited to the first 100 entries for readability.
                 cout << "Hash Map Contents (First 100 entries):" << endl;
                 int count = 0; // Counter to limit the number of entries displayed.
                 for (const auto & pair: hashMap) {
@@ -60,8 +60,9 @@ int main() {
                     count++;
                     if (count >= 100) break; // Limit to first 100 entries.
                 }
-            }
-            /*
+                break;
+            };
+            // Test value to find: D42DFA5FAE21
             case 2: {
                 string searchStr;
                 cout << "Enter string to search: ";
@@ -78,7 +79,9 @@ int main() {
                 if (!found) {
                     cout << "String not found." << endl;
                 }
+                break;
             }
+            /*
             case 3: {
                 string newStr;
             }
