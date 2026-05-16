@@ -62,7 +62,7 @@ int main() {
                 }
                 break;
             };
-            // Test value to find: D42DFA5FAE21
+            // Test values to find: D42DFA5FAE21 , 98FFABE6124B , DCA8C97E24B2
             case 2: {
                 string searchStr;
                 cout << "Enter string to search: ";
