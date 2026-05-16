@@ -63,7 +63,7 @@ int main() {
                 break;
             };
             // Test values to find: D42DFA5FAE21 , 98FFABE6124B , DCA8C97E24B2
-            case 2: {
+            case 2: { // Searches for a string in the hash table by generating its hash index and checking the corresponding list for a match.
                 string searchStr;
                 cout << "Enter string to search: ";
                 cin >> searchStr;
@@ -71,7 +71,7 @@ int main() {
                 int hashIndex = gen_hash_index(searchStr);
                 for (const auto & str: hashMap[hashIndex]) {
                     if (str == searchStr) { // Check if the string matches the search string.
-                        cout << "String found!" << endl;
+                        cout << "String found in index " << hashIndex << endl;
                         found = true;
                         break;
                     }
@@ -81,11 +81,17 @@ int main() {
                 }
                 break;
             }
-            /*
-            case 3: {
+            // To test this function, add string 'chicken12345' and then search for it.
+            case 3: { // Adds a new string to the hash table by generating its hash index and appending it to the list at that index.
                 string newStr;
+                cout << "Enter string to add: ";
+                cin >> newStr;
+                int hashIndex = gen_hash_index(newStr); // Generate the hash index for the new string.
+                hashMap[hashIndex].push_back(newStr); // Add the new string to the list at the generated hash index.
+                cout << "String " << newStr << " added to index " << hashIndex << endl;
+                break;
             }
-                */
+
         }
     } while (choice != 6); // Continue the menu loop until the user chooses to exit.
 
