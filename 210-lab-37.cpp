@@ -33,8 +33,59 @@ int main() {
     do {
         cout << "Main Menu:" << endl;
         cout << "[1] Display Hash Map (First 100 entries)" << endl;
-        cout << " [2] Search for a key"
-    }
+        cout << "[2] Search for a string" << endl;
+        cout << "[3] Add a string" << endl;
+        cout << "[4] Delete a string" << endl;
+        cout << "[5] Modify a string" << endl;
+        cout << "[6] Exit" << endl;
+        int choice;
+        cout << "\nEnter your choice: ";
+        if (!(cin >> choice)) { // Validate input to ensure it's an integer.
+            cin.clear(); // Clear the error state.
+            cin.ignore(1000, '\n'); // Ignore the rest of the line.
+            cout << "Invalid input. Please enter a number between 1 and 6." << endl;
+            continue; // Restart the loop to prompt for input again.
+        }
+        
+
+        switch (choice) {
+            case 1: {
+                cout << "Hash Map Contents (First 100 entries):" << endl;
+                int count = 0; // Counter to limit the number of entries displayed.
+                for (const auto & pair: hashMap) {
+                    cout << "Hash Index: " << pair.first << " -> ";
+                    for (const auto & str: pair.second) {
+                        cout << str << " ";
+                    }
+                    cout << endl;
+                    count++;
+                    if (count >= 100) break; // Limit to first 100 entries.
+                }
+            }
+            /*
+            case 2: {
+                string searchStr;
+                cout << "Enter string to search: ";
+                cin >> searchStr;
+                bool found = false; // Flag to track if the string is found.
+                int hashIndex = gen_hash_index(searchStr);
+                for (const auto & str: hashMap[hashIndex]) {
+                    if (str == searchStr) { // Check if the string matches the search string.
+                        cout << "String found!" << endl;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    cout << "String not found." << endl;
+                }
+            }
+            case 3: {
+                string newStr;
+            }
+                */
+        }
+    } while (choice != 6); // Continue the menu loop until the user chooses to exit.
 
     return 0;
 }
