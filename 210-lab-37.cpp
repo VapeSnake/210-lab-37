@@ -38,8 +38,8 @@ int main() {
         }
         maxDisplay++; // Increment the display counter after printing each hash index and its associated strings.
     }
-
-    /*
+/*
+    
      // Test to see how many codes each index has.
      for (const auto &pair : hashMap)
      {
@@ -50,7 +50,7 @@ int main() {
 
          maxDisplay++;
      }
-     */
+*/
     return 0;
 }
 // Now generates a hash index using modulo to ensure the index fits within a certain range.
